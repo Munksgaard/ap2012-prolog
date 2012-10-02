@@ -5,7 +5,7 @@ naturalnum(s(X)) :- naturalnum(X).
 
 % Exercise 1:
 
-less(z, s(_)).
+less(z, s(Y)) :- naturalnum(Y).
 less(s(X), s(Y)) :- less(X, Y).
 
 % Exercise 2:
