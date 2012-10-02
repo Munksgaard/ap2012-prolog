@@ -10,6 +10,13 @@ test(less5, [fail]) :- less(s(z),s(z)).
 test(checkset1, [true]) :- checkset([z, s(s(z))]).
 test(checkset2, [fail]) :- checkset([z, z]).
 test(checkset3, [fail]) :- checkset(z).
+test(checkset4, [fail]) :- checkset([s(z), z]).
+test(checkset5, [true]) :- checkset([]).
+test(checkset6, [true]) :- checkset([z]).
+test(checkset7, [fail]) :- checkset([1]).
+test(checkset8, [fail]) :- checkset([a]).
+test(checkset9, [true]) :- checkset([z, s(z), s(s(s(z)))]).
+test(checkset10, [fail]) :- checkset([s(z), s(s(z)), z]).
 
 %testing union
 %2 empty sets
