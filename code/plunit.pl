@@ -1,5 +1,5 @@
 :- begin_tests(set_tests).
-:- consult(sets).
+:- use_module(sets).
 
 test(less1, [true]) :- less(z, s(z)).
 test(less2, [true]) :- less(s(s(z)), s(s(s(s(z))))).

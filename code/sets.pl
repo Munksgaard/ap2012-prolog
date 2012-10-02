@@ -1,3 +1,5 @@
+:- module(sets, [less/2, checkset/1, ismember/3, union/3, intersection/3]).
+
 % Exercise 1:
 
 less(z, s(_)).
