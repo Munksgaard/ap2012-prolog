@@ -12,6 +12,43 @@
 \newcommand{\direction}[1]{\textbf{#1}}
 \begin{document}
 \maketitle
+\section{Code documentation}
+We have implemented the code in a prolog module file caled sets.pl. The
+predicate \prolog{less/2} recursively checks wether $\prolog{X} < \prolog{Y}$.
+\prolog{checkset/1} lifts off the first to elements in a list and checks that
+the first is the lesser one. The second element is pushed onto the list again
+and recursion is used to run through all elements of the list. 
 
+The \prolog{ismember/3} predicate mainly uses pattern matching in order to
+decide the result. The logic for each line is described here
+\begin{description}
+  \item If the list is empty, the result should only be true if the third
+    parameter is \direction{no}.
+  \item If the element in the list matches the element we are looking for, we
+    make shure that the element is also a natural number.
+  \item This line makes sure that if we do not wish to find the element in the
+    list, one of the elements must be lesser than the other. *I AM A BIT UNSURE
+    ABOUT THIS*
+  \item If the element we are matching is larger than the subject element we can
+    stop recursing because we know it will not be found in the remaining list.
+\end{description}
+
+If one of the sets $s_1$ or $s_2$ are empty, then \prolog{union/3} returns the
+non-empty set. We believe it is bad practice to return a illegitimate set and
+therefore make a call to \prolog{checkset/1}.
+We recurse through the two lists and makes sure that \prolog{XS} always contain
+the set with the lesser numbers. 
+
+\prolog{intersection/3} works just like \prolog{union/3} except that we only
+match subjects in $t_3$ if they are present in both $t_1$ and $t_2$.
+
+\section{Assesment of our solution}
+The program matches the requirements and we believe that we have implemented a
+good solution. We have made excessive testing with plunit that covers a wide
+range of possiblities that should succeed and also what should fail,
+specifically testing the examples from the assignment text. We believe
+that we have made reasonable and well founded judgement for behaviour that was not
+specified in the assignment.
+Our code is comprehensible and clear. Due to the small codebase, and the
+documentation above, we have omitted inline comments.
 \end{document}
-
