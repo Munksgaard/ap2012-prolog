@@ -54,3 +54,5 @@ intersection([X | XS], [Y | YS], Z) :-
 intersection([X | XS], [Y | YS], Z) :-
     less(Y, X),
     intersection([X | XS], YS, Z).
+
+% vim: syntax=prolog

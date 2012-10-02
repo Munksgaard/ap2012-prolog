@@ -48,3 +48,5 @@ test(intersection8,[true]) :- intersection([z,s(z),s(s(z))],[z,s(z),s(s(z))],[z,
 %test stuff from the assignment
 test(intersection9,[true]) :- intersection([z], [s(z)], A), A = [].
 :- end_tests(set_tests).
+
+% vim: syntax=prolog
