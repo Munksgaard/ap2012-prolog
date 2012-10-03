@@ -20,8 +20,8 @@ the first is the lesser one. The second element is pushed onto the list again
 and recursion is used to run through all elements of the list.
 
 The \prolog{ismember/3} predicate mainly uses pattern matching in order to
-decide the result. The logic for each line is described here
-\begin{description}
+decide the result. The logic for each rule is described here
+\begin{enumerate}
   \item If the list is empty, the result should only be true if the third
     parameter is \direction{no}, and if the element we are looking for is a natural number.
   \item If the element in the list matches the element we are looking for, we
@@ -34,7 +34,7 @@ decide the result. The logic for each line is described here
   \item If the head of the list is smaller than the element we are
     looking for, the element still might be in the list, so we call
     \prolog{ismember/3} recursively on the rest of the list.
-\end{description}
+\end{enumerate}
 
 If one of the sets $s_1$ or $s_2$ are empty, then \prolog{union/3} returns the
 non-empty set. We believe it is bad practice to return a illegitimate set and
@@ -44,6 +44,14 @@ the set with the lesser numbers.
 
 \prolog{intersection/3} works just like \prolog{union/3} except that we only
 match subjects in $t_3$ if they are present in both $t_1$ and $t_2$.
+
+\subsection{The behavior of \prolog{ismember(N, [s(z), s(s(s(z)))], A).}}
+The second rule is matched at first, the head \prolog{s(z)} is found and
+\prolog{A = yes}. Then prolog tries to find all possibilites for \prolog{N}. The
+query always succeeds since it is always possible to find a suitable \prolog{N}
+where \prolog{A = no}. When \prolog{N = s(s(s(z)))} the fourth rule is matched
+at first which results in a recursive call that finally results in matching of
+the second rules which makes \prolog{A = yes}.
 
 \section{Assessment of our solution}
 The program matches the requirements and we believe that we have implemented a
