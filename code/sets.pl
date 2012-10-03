@@ -18,10 +18,11 @@ checkset([X, Y | List]) :-
 
 % Exercise 3
 
-ismember(_, [], no).
+ismember(X, [], no) :- naturalnum(X).
 ismember(X, [X | _], yes) :- naturalnum(X).
-ismember(X, [Y | _], no) :-
-    less(X,Y).
+ismember(X, [Y | List], no) :-
+    less(X,Y),
+    checkset(List).
 ismember(X, [Y | List], Z) :-
     less(Y,X),
     ismember(X, List, Z).
