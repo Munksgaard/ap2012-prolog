@@ -10,11 +10,11 @@ less(s(X), s(Y)) :- less(X, Y).
 
 % Exercise 2:
 
-lesser(
-
 checkset([]).
-checkset([X | List]) :-
-    naturalnum(X).
+checkset([X]) :- naturalnum(X).
+checkset([X, Y | List]) :-
+    less(X, Y),
+    checkset([Y | List]).
 
 % Exercise 3
 
