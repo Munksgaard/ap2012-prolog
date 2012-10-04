@@ -1,14 +1,14 @@
 :- module(sets, [less/2, checkset/1, ismember/3, union/3, intersection/3]).
 
-naturalnum(z).
-naturalnum(s(X)) :- naturalnum(X).
-
 % Exercise 1:
 
-less(z, s(Y)) :- naturalnum(Y).
+less(z, s(Y)).
 less(s(X), s(Y)) :- less(X, Y).
 
 % Exercise 2:
+
+naturalnum(z).
+naturalnum(s(X)) :- naturalnum(X).
 
 checkset([]).
 checkset([X]) :- naturalnum(X).
@@ -18,11 +18,10 @@ checkset([X, Y | List]) :-
 
 % Exercise 3
 
-ismember(X, [], no) :- naturalnum(X).
-ismember(X, [X | _], yes) :- naturalnum(X).
+ismember(X, [], no).
+ismember(X, [X | _], yes).
 ismember(X, [Y | List], no) :-
-    less(X,Y),
-    checkset(List).
+    less(X,Y).
 ismember(X, [Y | List], Z) :-
     less(Y,X),
     ismember(X, List, Z).
