@@ -2,7 +2,7 @@
 
 % Exercise 1:
 
-less(z, s(Y)).
+less(z, s(_)).
 less(s(X), s(Y)) :- less(X, Y).
 
 % Exercise 2:
@@ -18,9 +18,9 @@ checkset([X, Y | List]) :-
 
 % Exercise 3
 
-ismember(X, [], no).
+ismember(_, [], no).
 ismember(X, [X | _], yes).
-ismember(X, [Y | List], no) :-
+ismember(X, [Y | _], no) :-
     less(X,Y).
 ismember(X, [Y | List], Z) :-
     less(Y,X),
