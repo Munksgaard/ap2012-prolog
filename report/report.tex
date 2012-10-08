@@ -13,19 +13,22 @@
 \begin{document}
 \maketitle
 \section{Code documentation}
-We have implemented the code in a prolog module file called sets.pl. The
-predicate \prolog{less/2} recursively checks whether $\prolog{X} < \prolog{Y}$.
-\prolog{checkset/1} lifts off the first to elements in a list and checks that
-the first is the lesser one. The second element is pushed onto the list again
-and recursion is used to run through all elements of the list.
+We have implemented the code in a prolog module file called
+sets.pl. The predicate
+\prolog{less/2} recursively checks whether $\prolog{X} < \prolog{Y}$.
+\prolog{checkset/1} lifts off the first to elements in a list and
+checks that the first is the lesser one. The second element is pushed
+onto the list again and recursion is used to run through all elements
+of the list.
 
-The \prolog{ismember/3} predicate mainly uses pattern matching in order to
-decide the result. The logic for each rule is described here
+The \prolog{ismember/3} predicate assumes that we get a proper natural
+number set as defined in the assigment, and mainly uses pattern
+matching in order to decide the result. The logic for each rule is
+described here
 \begin{enumerate}
   \item If the list is empty, the result should only be true if the third
-    parameter is \direction{no}, and if the element we are looking for is a natural number.
-  \item If the element in the list matches the element we are looking for, we
-    make sure that the element is also a natural number.
+    parameter is \direction{no}.
+  \item If the element in the list matches the element we are looking for, we should return \direction{yes}.
   \item If the head of the list is bigger than the element we are
     looking for, so are all the rest of the elements of the list,
     since the head is the smallest one (given that the list is a
