@@ -28,7 +28,7 @@ test(ismember3, [true, nondet]) :-
     ismember(z, [], A),
     A = no.
 test(ismember4, [fail]) :-
-    ismember(z, z, A).
+    ismember(z, z, _).
 test(ismember5, [true, nondet]) :-
     ismember(s(s(z)), [z, s(s(z))], A),
     A = yes.
@@ -38,6 +38,10 @@ test(ismember6, [true, nondet]) :-
 test(ismember7, [true, nondet]) :-
     ismember(s(s(s(z))), [z, s(s(z))], A),
     A = no.
+test(ismember8, [true, nondet]) :-
+    ismember(s(z), [z, s(s(z)) | _], no).
+test(ismember9, all(X == [z, s(z)])) :-
+    ismember(X, [z, s(z)], yes).
 
 %testing union
 %2 empty sets
